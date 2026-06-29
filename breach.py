@@ -122,9 +122,16 @@ CHARS=[
 DIFFS=[
     {"name":"SCRIPT KIDDIE","smult":1.0,"trace":0.06,"shop_n":6,"break":False,"hpmod":0,"desc":"chill. learn it."},
     {"name":"OPERATOR","smult":1.6,"trace":0.12,"shop_n":6,"break":False,"hpmod":0,"desc":"the real deal."},
-    {"name":"GHOST PROTOCOL","smult":2.4,"trace":0.22,"shop_n":4,"break":False,"hpmod":0,"desc":"fast trace, lean shop."},
-    {"name":"ZERO DAY","smult":3.5,"trace":0.34,"shop_n":3,"break":True,"hpmod":-1,"desc":"tools JAM & break. legends only."},
+    {"name":"GHOST PROTOCOL","smult":2.4,"trace":0.22,"shop_n":4,"break":False,"hpmod":0,"cmds":True,"desc":"real shell commands, fast trace."},
+    {"name":"ZERO DAY","smult":3.5,"trace":0.34,"shop_n":3,"break":True,"hpmod":-1,"cmds":True,"desc":"commands + tools break. legends."},
 ]
+COMMANDS=['nmap -sv','sudo su','chmod +x','cat /etc/passwd','ls -la','ssh root@host','ps aux',
+          'netstat -an','whoami','apt update','john hash.txt','hydra -l admin','nikto -h','grep -r pass',
+          'gobuster dir','find / -perm','curl -s url','ifconfig eth0','tcpdump -i','dig +short']
+def pc_b64(): c=random.choice(COMMANDS); return (base64.b64encode(c.encode()).decode(),"Base64 -> COMMAND",c,"CMD-B64")
+def pc_hex(): c=random.choice(COMMANDS); return (c.encode().hex(),"Hex -> COMMAND",c,"CMD-HEX")
+def pc_rev(): c=random.choice(COMMANDS); return (c[::-1],"reversed COMMAND",c,"CMD-REV")
+CMD_PUZZLES=[pc_b64,pc_hex,pc_rev]
 TOOLS=[
     {"name":"HINT [F1]","cost":30,"k":"hint","desc":"extra hint"},
     {"name":"SHIELD","cost":55,"k":"shield","desc":"blocks next fail"},
@@ -173,7 +180,8 @@ class State:
 
     def gen_node(s,kind):
         s.depth+=1; s.boss=(kind=="boss"); s.secure=(kind=="secure"); s.bonus=(kind=="cache"); s.trace=0.0; s.scan=8
-        gen=p_boss if (s.boss or s.secure) else random.choice(PUZZLES)
+        if s.boss or s.secure: gen=p_boss
+        else: gen=random.choice(PUZZLES+CMD_PUZZLES if s.diff.get("cmds") else PUZZLES)
         s.disp,s.hint,s.ans,s.ptype=gen()
         s.show_hint=(s.perk=="type"); s.scanned=(s.perk=="type"); s.inp=""
         if s.secure: s.trace=25.0      # head start on the trace = real pressure
