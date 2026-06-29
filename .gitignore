@@ -1,0 +1,9 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# BREACH local saves (leaderboard / achievements)
+.breach_save.json
