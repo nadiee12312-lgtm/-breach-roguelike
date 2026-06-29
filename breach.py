@@ -112,18 +112,18 @@ def p_boss(): w=random.choice(WORDS); return (base64.b64encode(w[::-1].encode())
 LAYERS=["OUTER NET","DMZ","INTRANET","THE VAULT","DATA CORE","BLACK ICE","DEEP NODE"]
 GUARDIANS=["SENTINEL","WARDEN","BLACK ICE","CERBERUS","THE ARCHITECT","NULL","OVERSEER"]
 CHARS=[
-    {"name":"NEON","hp":4,"mult":1.0,"skips":0,"perk":"none","desc":"4 integrity"},
-    {"name":"R00T","hp":3,"mult":1.5,"skips":0,"perk":"none","desc":"+50% score"},
-    {"name":"GHOST","hp":3,"mult":1.0,"skips":2,"perk":"none","desc":"2 free skips"},
-    {"name":"ORACLE","hp":3,"mult":1.0,"skips":0,"perk":"type","desc":"sees cipher type"},
-    {"name":"VIPER","hp":3,"mult":1.0,"skips":0,"perk":"shop","desc":"30% off shop"},
-    {"name":"ECHO","hp":3,"mult":1.0,"skips":0,"perk":"trace","desc":"slow trace"},
+    {"name":"NEON","hp":6,"mult":1.0,"skips":0,"perk":"none","desc":"6 integrity"},
+    {"name":"R00T","hp":5,"mult":1.5,"skips":0,"perk":"none","desc":"+50% score"},
+    {"name":"GHOST","hp":5,"mult":1.0,"skips":2,"perk":"none","desc":"2 free skips"},
+    {"name":"ORACLE","hp":5,"mult":1.0,"skips":0,"perk":"type","desc":"sees cipher type"},
+    {"name":"VIPER","hp":5,"mult":1.0,"skips":0,"perk":"shop","desc":"30% off shop"},
+    {"name":"ECHO","hp":5,"mult":1.0,"skips":0,"perk":"trace","desc":"slow trace"},
 ]
 DIFFS=[
-    {"name":"SCRIPT KIDDIE","smult":1.0,"trace":0.10,"shop_n":6,"break":False,"hpmod":0,"desc":"chill. learn it."},
-    {"name":"OPERATOR","smult":1.6,"trace":0.20,"shop_n":6,"break":False,"hpmod":0,"desc":"the real deal."},
-    {"name":"GHOST PROTOCOL","smult":2.4,"trace":0.32,"shop_n":4,"break":False,"hpmod":0,"desc":"fast trace, lean shop."},
-    {"name":"ZERO DAY","smult":3.5,"trace":0.46,"shop_n":3,"break":True,"hpmod":-1,"desc":"tools JAM & break. legends only."},
+    {"name":"SCRIPT KIDDIE","smult":1.0,"trace":0.06,"shop_n":6,"break":False,"hpmod":0,"desc":"chill. learn it."},
+    {"name":"OPERATOR","smult":1.6,"trace":0.12,"shop_n":6,"break":False,"hpmod":0,"desc":"the real deal."},
+    {"name":"GHOST PROTOCOL","smult":2.4,"trace":0.22,"shop_n":4,"break":False,"hpmod":0,"desc":"fast trace, lean shop."},
+    {"name":"ZERO DAY","smult":3.5,"trace":0.34,"shop_n":3,"break":True,"hpmod":-1,"desc":"tools JAM & break. legends only."},
 ]
 TOOLS=[
     {"name":"HINT [F1]","cost":30,"k":"hint","desc":"extra hint"},
