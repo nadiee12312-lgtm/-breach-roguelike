@@ -155,6 +155,7 @@ def write_save(d): json.dump(d,open(SAVE,"w"))
 class State:
     def __init__(s):
         s.scene="menu"; s.sel=0; s.dsel=1; s.save=load_save(); s.initials=""
+        s.glitch=0; s.flash=0; s.scan=0
 
     def start(s,ch,diff):
         s.ch=ch; s.diff=diff; s.perk=ch["perk"]
