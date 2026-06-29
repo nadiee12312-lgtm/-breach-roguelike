@@ -1,10 +1,19 @@
 # BREACH
 
 A Game Boy-style hacking roguelike. Descend a system node by node — each node is a
-cipher you have to crack. Pick your path, build combos, outrun the trace, and see how
-deep you can get before they catch you.
+cipher you have to crack. Pick your path, build combos, outrun the trace, and rack up
+the highest score you can before they catch you.
 
 *(add a screenshot or short gif here — it sells the green CRT look instantly)*
+
+## 🏆 The whole point: beat the high score
+
+This is a score-chasing game, and the leaderboard is the heart of it. **Run it, go as
+deep as you can, and share your best run.** Open an [issue](../../issues/new) with a
+screenshot of your game-over screen (runner, difficulty, score) — or just drop your
+number in the comments wherever you found this.
+
+Then beat someone else's score and post it. Let's see who tops the board. 🥇
 
 ## What it is
 
